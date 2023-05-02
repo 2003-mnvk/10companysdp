@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/858d092732.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>sell</title>
+    <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-color: #24262b;
+    background-image: url('photo1.avif');
+    background-size: cover;
+    background-position: center;
+    font-color:white;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1rem;
+}
+
+a:hover{
+    color: orange;
+}
+
+/*header*/
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 4rem;
+}
+
+.navbar .fa-bars{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action-btn{
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius:  20px;
+    font-size: 0.8rem;
+    transition: scale 0.2 ease;
+}
+
+.action-btn:hover{
+    scale: 1.05;
+    color: #fff;
+}
+
+.action-btn:active{
+    scale: 0.95 ;
+}
+
+/*dropdown mennu*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+.dropdown_menu.open{
+    height: 240px;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/*responsive design*/
+@media (max-width:992px){
+    .navbar .links,
+    .navbar .action-btn{
+        display: none;
+    }
+
+    .navbar .fa-bars{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+body{
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+</style>
+
+<!navigation bar starts here>
+<header>
+                <div class="navbar">
+                    <div class="logo"><a href="{% url 'home' %}">10 Fashion</a></div>
+                    <ul class="links">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'buy' %}">Buy</a></li>
+                        <li><a href="{% url 'sell' %}">Sell</a></li>
+                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                    </ul>
+                    <a href="{% url 'login' %}" class="action-btn">Register/Login</a>
+                    <div class="fa-bars">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                <div class="dropdown_menu">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="buy">Buy</a></li>
+                    <li><a href="sell">Sell</a></li>
+                    <li><a href="cart">Cart</a></li>
+                    <li><a href="#" class="action-btn">Register/Login</a></li>
+                    <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                </div>
+            </header>
+
+            <script>
+                const faBarsBtn= document.querySelector('.fa-bars')
+                const faBarsBtnIcon= document.querySelector('.fa-bars i')
+                const dropDownMenu= document.querySelector('.dropdown_menu')
+
+                faBarsBtn.oneclick= function(){
+                    dropDownMenu.classList.toggle('open')
+                    const isOpen= dropDownMenu.classList.contains('open')
+
+                    toggleBtnIcon.classList=isOpen
+                    ? 'fa-solid fa-xmark'
+                    : 'fa-solid fa-bars'
+                }
+                </script>
+</head>
+<body>
+<center>
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+        {% csrf_token %}
+<fieldset>
+
+<!-- Form Name -->
+    <center>
+        <h1 style="color: white">Sell Here</h1><br>
+    </center>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label"style="color: white;font-size:30px">Company Name</label>
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="cname" placeholder="Company Name" class="form-control"  size="50px" type="text" style="width:250px">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Product name</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="pname" placeholder="Product name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       <div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">E-Mail</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" style="border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Phone </label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="phone" placeholder="+91 9999999999" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Address</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="address" placeholder="Address" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">City</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="city" placeholder="city" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+    <!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Zip Code</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="zipcode" placeholder="Zip Code" class="form-control"  type="text">
+    </div>
+</div>
+</div>
+
+<!-- Select Basic -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Product Type</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="ptype" class="form-control selectpicker" style="border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;">
+      <option value=" " >Please select your type of product</option>
+      <option>Mens ware</option>
+      <option>Womens ware</option>
+      <option >Kids Ware</option>
+      <option >Mens Footware</option>
+      <option >Womens Footware</option>
+      <option >Watches and Jewelerry</option>
+      <option >Beauty and Grooming</option>
+      <option >Popular Brands</option>
+    </select>
+  </div>
+</div>
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Price</label>
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+  <input name="price" placeholder="Price in ₹" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+    <!-- Select Basic -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white;font-size:30px">Price Range</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="prange" class="form-control selectpicker" >
+      <option value=" " >Please select your price range</option>
+      <option>₹100-₹500</option>
+      <option>₹500-₹1000</option>
+      <option >₹1000-₹5000</option>
+      <option >₹10000 and above</option>
+    </select>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<!-- Text area -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" style="color: white; font-size:30px">Product Description</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+        	<textarea class="form-control" name="comment" placeholder="Product Description"></textarea>
+  </div>
+  </div>
+</div>
+
+<!-- Success message -->
+    <h1 style="color: white; font-size:20px">Thanks for contacting us, we will get back to you shortly.</h1>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+      <button type="submit" class="btn btn-warning" style="color:black" ><a>Send </a><span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+    </div><!-- /.container -->
+</center>
+
+
+<!footer >
+
+
+  <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>10 company</h4>
+  	 			<ul>
+  	 				<li><a href="#">about us</a></li>
+  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">privacy policy</a></li>
+  	 				<li><a href="#">affiliate program</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'contactus' %}">FAQ</a></li>
+  	 				<li><a href="#">shipping</a></li>
+  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">order status</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>online shop</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'explorewj' %}">watch</a></li>
+  	 				<li><a href="{% url 'explorewj' %}">bag</a></li>
+  	 				<li><a href="{% url 'exploremfc' %}">shoes</a></li>
+  	 				<li><a href="{% url 'exploremc' %}">dress</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+                    <a href="https://www.youtube.com/channel/UCDDAwrhnW_NpW7Tg1ib1pAg"><i class="fa fa-youtube"></i></a>
+  	 				<a href="https://www.facebook.com/spaw.spaw.14"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="https://twitter.com/MnvKarthikeya"><i class="fab fa-twitter"></i></a>
+  	 				<a href="https://www.instagram.com/__karthik_stark__/"><i class="fa fa-instagram"></i></a>
+  	 				<a href="https://www.linkedin.com/in/mnvkarthikeya/"><i class="fab fa-linkedin-in"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
+
+</body>
+</html>

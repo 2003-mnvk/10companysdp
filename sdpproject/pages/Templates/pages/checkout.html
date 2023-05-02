@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>10 Company</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-color: #000;
+    background-image: url('photo1.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1rem;
+}
+
+a:hover{
+    color: orange;
+}
+
+/*header*/
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 4rem;
+}
+
+.navbar .fa-bars{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action-btn{
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius:  20px;
+    font-size: 0.8rem;
+    transition: scale 0.2 ease;
+}
+
+.action-btn:hover{
+    scale: 1.05;
+    color: #fff;
+}
+
+.action-btn:active{
+    scale: 0.95 ;
+}
+
+/*dropdown mennu*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+.dropdown_menu.open{
+    height: 240px;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/*responsive design*/
+@media (max-width:992px){
+    .navbar .links,
+    .navbar .action-btn{
+        display: none;
+    }
+
+    .navbar .fa-bars{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+</style>
+
+<!navigation bar starts here>
+<header>
+                <div class="navbar">
+                    <div class="logo"><a href="{% url 'home' %}">10 Fashion</a></div>
+                    <ul class="links">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'buy' %}">Buy</a></li>
+                        <li><a href="sell">Sell</a></li>
+                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                    </ul>
+                    <a href="{% url 'login' %}" class="action-btn">Register/Login</a>
+                    <div class="fa-bars">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                <div class="dropdown_menu">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="buy">Buy</a></li>
+                    <li><a href="sell">Sell</a></li>
+                    <li><a href="cart">Cart</a></li>
+                    <li><a href="#" class="action-btn">Register/Login</a></li>
+                    <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                </div>
+            </header>
+
+            <script>
+                const faBarsBtn= document.querySelector('.fa-bars')
+                const faBarsBtnIcon= document.querySelector('.fa-bars i')
+                const dropDownMenu= document.querySelector('.dropdown_menu')
+
+                faBarsBtn.oneclick= function(){
+                    dropDownMenu.classList.toggle('open')
+                    const isOpen= dropDownMenu.classList.contains('open')
+
+                    toggleBtnIcon.classList=isOpen
+                    ? 'fa-solid fa-xmark'
+                    : 'fa-solid fa-bars'
+                }
+                </script>
+  <style media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+outline: none;
+font-family: 'Open Sans', sans-serif;
+}
+
+body{
+background: rgb(12, 18, 27);
+background-size: cover;
+width: 100%;
+height: 100vh;
+font-size: 16px;
+}
+
+
+
+.container{
+max-width: 500px;
+height: auto;
+margin: 60px auto;
+background: #fff;
+padding: 20px 40px 30px;
+border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+border-top: 5px solid #5f6c7d;
+}
+
+.title{
+color: #d1d9e3;
+font-size: 1.8em;
+background: rgb(15, 72, 156);
+text-align: center;
+text-transform: uppercase;
+font-weight: 900;
+margin-top: -20px;
+margin: -20px -40px;
+margin-bottom: 30px;
+}
+
+.input-form{
+margin-bottom: 20px;
+}
+
+.input-form .label{
+  display: block;
+  font-size: 1em;
+  color: #212121;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+.input-form .items{
+margin-bottom: 20px;
+}
+
+.section-1 .items .input,
+.section-2 .items .input,
+.section-3 .items .input{
+  background: transparent;
+  border: 2px solid #BDBDBD;
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  color: #212121;
+  border-radius: 3px;
+}
+
+.input-form .section-3{
+display: flex;
+justify-content: space-between;
+}
+
+.input-form .section-3 .items{
+ width: 48%;
+}
+
+.btn{
+background: #2d6fe7;
+color: #fff;
+font-size: 1.25em;
+padding: 10px 0;
+text-align: center;
+text-transform: uppercase;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+letter-spacing: 2px;
+}
+
+.cvc{
+display: flex;
+justify-content: space-between;
+position: relative;
+transition: all 0.3s ease;
+}
+
+.cvc .tooltip{
+color: #115e9f;
+border: 2px solid #1d56e7;
+border-radius: 50%;
+width: 25px;
+height: 25px;
+text-align:center;
+cursor: pointer;
+}
+
+.cvc .cvc-img{
+position: absolute;
+top: -300%;
+right: 0;
+background: #5f6c7d;
+padding: 12px;
+border-radius: 5px;
+display: none;
+}
+
+.cvc .cvc-img img{
+width: 100px;
+height: auto;
+display: block;
+}
+
+.cvc:hover .cvc-img{
+display: block;
+}
+
+@media screen and (max-width: 460px){
+.input-form .section-3{
+  flex-direction: column;
+}
+.input-form .section-3 .items{
+   width: 100%;
+}
+.input-form .items{
+  margin-bottom: 10px;
+}
+
+.input-form{
+  margin-bottom: 15px;
+}
+.title{
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+}
+  </style>
+</head>
+<body>
+
+    <div class="container">
+      <div class="title">Checkout Form</div>
+
+      <div class="input-form">
+        <div class="section-1">
+          <div class="items">
+            <label class="label">card number</label>
+            <input type="text" class="input" maxlength="16" data-mask="0000 0000 0000 0000"placeholder="1234 1234 1234 1234">
+          </div>
+        </div>
+        <div class="section-2">
+          <div class="items">
+            <label class="label">card holder</label>
+            <input type="text" class="input" placeholder="Coding Market">
+          </div>
+        </div>
+        <div class="section-3">
+          <div class="items">
+            <label class="label">Expire date</label>
+            <input type="text" class="input" data-mask="00 / 00" placeholder="MM / YY">
+          </div>
+          <div class="items">
+            <div class="cvc">
+              <label class="label">cvc code</label>
+              <div class="tooltip">?
+                <div class="cvc-img"><img src="https://i.imgur.com/r8oXtry.png" alt=""></div>
+              </div>
+            </div>
+            <input type="text" class="input" data-mask="0000" placeholder="0000">
+          </div>
+        </div>
+      </div>
+
+        <div class="btn"><a href="{% url 'home' %}">proceed</a></div>
+
+    </div>
+
+
+</body>
+</html>
