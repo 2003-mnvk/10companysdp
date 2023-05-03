@@ -42,7 +42,8 @@ urlpatterns = [
     path('contactus/', views.contactus, name='contactus'),
     path('checkout/', views.checkout, name='checkout'),
     path('sell/', views.sell, name='sell'),
-    path('logout/', logoutuser, name='logout')
+    path('logout/', logoutuser, name='logout'),
+    path('aboutus/', views.aboutus, name='aboutus')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <script src="https://kit.fontawesome.com/858d092732.js" crossorigin="anonymous"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Aboutus</title>
+</head>
+<body>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+
+<style>
+    <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-color: #24262b;
+    background-image: url('photo1.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1rem;
+}
+
+a:hover{
+    color: orange;
+}
+
+/*header*/
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 4rem;
+}
+
+.navbar .fa-bars{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action-btn{
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius:  20px;
+    font-size: 0.8rem;
+    transition: scale 0.2 ease;
+}
+
+.action-btn:hover{
+    scale: 1.05;
+    color: #fff;
+}
+
+.action-btn:active{
+    scale: 0.95 ;
+}
+
+/*dropdown mennu*/
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+.dropdown_menu.open{
+    height: 240px;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/*responsive design*/
+@media (max-width:992px){
+    .navbar .links,
+    .navbar .action-btn{
+        display: none;
+    }
+
+    .navbar .fa-bars{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+</style>
+<style>
+  body {
+    font-family: 'Roboto';font-size: 16px;
+}
+
+.aboutus-section {
+    padding: 90px 0;
+}
+.aboutus-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0 0 39px;
+    padding: 0 0 11px;
+    position: relative;
+    text-transform: uppercase;
+    color: lightblue;
+}
+.aboutus-title::after {
+    background: white none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 54px;
+}
+.aboutus-text {
+    color: white;
+    font-size: 13px;
+    line-height: 22px;
+    margin: 0 0 35px;
+}
+
+a:hover, a:active {
+    color: #ffb901;
+    text-decoration: none;
+    outline: 0;
+}
+.aboutus-more {
+    border: 1px solid #fdb801;
+    border-radius: 25px;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+.feature .feature-box .iconset {
+    background: white none repeat scroll 0 0;
+    float: left;
+    position: relative;
+    width: 18%;
+}
+.feature .feature-box .iconset::after {
+    background: #fdb801 none repeat scroll 0 0;
+    content: "";
+    height: 150%;
+    left: 43%;
+    position: absolute;
+    top: 100%;
+    width: 1px;
+}
+
+.feature .feature-box .feature-content h4 {
+    color: #0f0f0f;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+
+
+.feature .feature-box .feature-content {
+    float: left;
+    padding-left: 150px;
+    width: 78%;
+}
+.feature .feature-box .feature-content h4 {
+    color: lightblue;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+.feature .feature-box .feature-content p {
+    color: white;
+    font-size: 13px;
+    line-height: 22px;
+}
+.icon {
+    color : #f4b841;
+    padding:10px;
+    font-size:40px;
+    border: 1px solid #fdb801;
+    border-radius: 100px;
+    color: #fdb801;
+    font-size: 28px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    width: 70px;
+}
+}
+</style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+</style>
+</style>
+<header>
+                <div class="navbar">
+                    <div class="logo"><a href="/">10 Fashion</a></div>
+                    <ul class="links">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'buy' %}">Buy</a></li>
+                        <li><a href="{% url 'sell' %}">Sell</a></li>
+                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                    </ul>
+                    <a href="{% url 'login' %}" class="action-btn">Register/Login</a>
+                    <div class="fa-bars">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                <div class="dropdown_menu">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="buy">Buy</a></li>
+                    <li><a href="sell">Sell</a></li>
+                    <li><a href="cart">Cart</a></li>
+                    <li><a href="#" class="action-btn">Register/Login</a></li>
+                    <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                </div>
+            </header>
+            {% if user.is_authenticated %}LOGGED IN{% endif %}
+            <script>
+                const faBarsBtn= document.querySelector('.fa-bars')
+                const faBarsBtnIcon= document.querySelector('.fa-bars i')
+                const dropDownMenu= document.querySelector('.dropdown_menu')
+
+                faBarsBtn.oneclick= function(){
+                    dropDownMenu.classList.toggle('open')
+                    const isOpen= dropDownMenu.classList.contains('open')
+
+                    toggleBtnIcon.classList=isOpen
+                    ? 'fa-solid fa-xmark'
+                    : 'fa-solid fa-bars'
+                }
+                </script>
+
+
+<div class="aboutus-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="aboutus">
+                        <h2 class="aboutus-title">About Us</h2>
+                        <p class="aboutus-text">This e-commerce website is a project of our collage KL University.</p>
+                        <p class="aboutus-text">Our team number is 10 of Cluster 3</p>
+                        <a class="aboutus-more" href="#">read more</a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="aboutus-banner">
+                        <iframe width="420" height="315" src="https://www.youtube.com/embed/JqcncLPi9zw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-12">
+                    <div class="feature">
+                        <div class="feature-box">
+                            <div class="clearfix">
+                                <div class="feature-content">
+                                    <h4>Work with heart</h4>
+                                    <p>Our Project moto is to work with heart until you get perfect result.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="clearfix">
+                                <div class="feature-content">
+                                    <h4>Reliable services</h4>
+                                    <p>Further implementing this website the customers will get reliable services</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-box">
+                            <div class="clearfix">
+                                <div class="feature-content">
+                                    <h4>Great support</h4>
+                                    <p>From our team there will be a great support to customers 24/7.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!footer >
+
+
+  <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>10 company</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'aboutus' %}">about us</a></li>
+  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">privacy policy</a></li>
+  	 				<li><a href="#">affiliate program</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'contactus' %}">FAQ</a></li>
+  	 				<li><a href="#">shipping</a></li>
+  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">order status</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>online shop</h4>
+  	 			<ul>
+  	 				<li><a href="{% url 'explorewj' %}">watch</a></li>
+  	 				<li><a href="{% url 'explorewj' %}">bag</a></li>
+  	 				<li><a href="{% url 'exploremfc' %}">shoes</a></li>
+  	 				<li><a href="{% url 'exploremc' %}">dress</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+                    <a href="https://www.youtube.com/channel/UCDDAwrhnW_NpW7Tg1ib1pAg"><i class="fab fa-youtube"></i></a>
+  	 				<a href="https://www.facebook.com/spaw.spaw.14"><i class="fab fa-facebook-f"></i></a>
+  	 				<a href="https://twitter.com/MnvKarthikeya"><i class="fab fa-twitter"></i></a>
+  	 				<a href="https://www.instagram.com/__karthik_stark__/"><i class="fab fa-instagram"></i></a><br>
+  	 				<a href="https://www.linkedin.com/in/mnvkarthikeya/"><i class="fab fa-linkedin-in"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
+
+</body>
+</html>

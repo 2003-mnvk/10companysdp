@@ -123,6 +123,10 @@ def sell(request):
 
     return render(request,"pages/sell.html")
 
+def aboutus(request):
+    return render(request,"pages/aboutus.html")
+
+
 
 
 
